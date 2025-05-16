@@ -57,4 +57,20 @@ document.addEventListener('DOMContentLoaded', () => {
             window.scrollTo({ top: y, behavior: 'smooth' });
         });
     }
+
+    const returnToTopButton = document.getElementById('return-to-top-btn');
+
+    if (returnToTopButton) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300 && window.innerWidth < 1024) {
+                returnToTopButton.style.display = 'flex';
+            } else {
+                returnToTopButton.style.display = 'none';
+            }
+        });
+
+        returnToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
 }); 
