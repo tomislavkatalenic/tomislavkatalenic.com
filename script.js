@@ -1,6 +1,3 @@
-// JavaScript can be added here for interactivity if needed.
-console.log("Hello from script.js!");
-
 document.addEventListener('DOMContentLoaded', () => {
     const themeToggleCheckbox = document.getElementById('theme-toggle-checkbox');
     const rootElement = document.documentElement;
@@ -51,7 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (scrollDownButton && aboutSectionWrapper) {
         scrollDownButton.addEventListener('click', () => {
             let yOffset = -220;
-            if (aboutTabHeader) {
+            if (window.innerWidth <= 900) {
+                yOffset = -220;
+            } else if (aboutTabHeader) {
                 yOffset = -aboutTabHeader.getBoundingClientRect().height - 220;
             }
             const y = aboutSectionWrapper.getBoundingClientRect().top + window.pageYOffset + yOffset;
